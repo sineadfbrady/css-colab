@@ -1,13 +1,13 @@
 var Rumours = require('rumours')
-var css     = require('css')
 var h       = require('hyperscript')
 var o       = require('observable')
 
 var text = h('textarea', {cols: 80, rows: 24, disabled: true})
-
+var host = window.location.host
 var rumours = RUMOURS = Rumours({
-  db: 'hello',
-  host: 'http://localhost:4567'
+  db: 'hello'
+//,
+//  host: 'http://localhost:4567'
   //  host: 'http://rumoursdb.com:4567'
 })
 
@@ -18,7 +18,7 @@ var opened = {}
 //of a Scuttlebutt then we'd be able to roll this out by just
 //adding the stylesheet as a link to that route!
 
-rumours.view('all', ['r-edit','stylesheet', 'localhost:8000', true])
+rumours.view('all', ['r-edit','stylesheet', host, true])
 .on('data', function (d) {
   var k = d.key.join('!')
   opened[k] = opened[k] || (

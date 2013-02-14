@@ -1,4 +1,8 @@
 body {
-  margin: 20px;
-  border: 2px solid brown;
-}
+  border: 1px solid rgb(165, 42, 42);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px auto auto;
+  width: 400px;
+  }
+

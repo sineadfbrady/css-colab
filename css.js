@@ -1,13 +1,13 @@
 var Rumours = require('rumours')
 var ready   = require('domready')
-var CSS     = require('css')
 var idle    = require('idle')
 var parse   = require('./parse')
 
 var rumours = Rumours({
-  db: 'hello', 
+  db: 'hello'
+//, 
 //  host: 'http://rumoursdb.com:4567'
-  host: 'http://localhost:4567'
+//  host: 'http://localhost:4567'
 })
 
 ready(function () {
@@ -17,6 +17,7 @@ ready(function () {
   for(var i in sheets) {
 
     var styleSheet = sheets[i]
+    console.log(styleSheet.href)
     if(styleSheet.href && styleSheet.rules)
     (function (styleSheet) {
 
