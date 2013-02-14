@@ -1,0 +1,19 @@
+body {
+  width: 400px;
+  margin: 0 auto auto;
+}
+
+p {
+  background: red;
+}
+
+* {
+  font-family: comic sans ms;
+}
+
+h1 { 
+  background: green;
+  color: red;
+  border: 20px solid yellow;
+}
+
