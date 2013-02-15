@@ -13,7 +13,8 @@
     "hyperscript": "~1.0.1",
     "observable": "~1.1.1",
     "domready": "~0.2.11",
-    "idle": "0.0.0"
+    "idle": "0.0.0",
+    "hash-change": "~0.1.0"
   },
   "devDependencies": {},
   "scripts": {
