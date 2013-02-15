@@ -4,16 +4,26 @@ var idle    = require('idle')
 var parse   = require('./parse')
 
 var rumours = Rumours({
-  db: 'hello'
+  db: 'css-colab',
+  host: (
+  //connect to central server if there is one!
+  window.location.hostname == 'localhost' 
+  ? 'http://localhost:4567'
+  : 'http://rumoursdb.com'
+  )
 //, 
 //  host: 'http://rumoursdb.com:4567'
 //  host: 'http://localhost:4567'
 })
+//expose 
+var host = window.location.host
+CssColab = function (name) {
+  host = name
+}
 
 ready(function () {
 
   var sheets = document.styleSheets
-  var host = window.location.host
   for(var i in sheets) {
 
     var styleSheet = sheets[i]
@@ -27,14 +37,13 @@ ready(function () {
       ['r-edit', 'stylesheet', host, encodeURIComponent(href)].join('!')
       , function (err, rEdit) {
 
-        console.log('OPEN', rEdit.name)
-
         var css = rEdit.toJSON().join('/n').trim()
 
         function updateCss() {
-          console.log('updated css')
+
           while(styleSheet.rules.length)
             styleSheet.deleteRule()
+
           parse(rEdit.toJSON().join('\n')).forEach(function (rule) {
             if(rule.valid) {
               console.log(rule.selector, rule.style)
