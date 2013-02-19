@@ -5,12 +5,13 @@ var parse   = require('./parse')
 
 var rumours = Rumours({
   db: 'css-colab',
+/*
   host: (
   //connect to central server if there is one!
   window.location.hostname == 'localhost' 
   ? 'http://localhost:4567'
   : 'http://rumoursdb.com'
-  )
+  ) */
 //, 
 //  host: 'http://rumoursdb.com:4567'
 //  host: 'http://localhost:4567'
